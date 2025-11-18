@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Final JS - Astronomía, Ambiente y Salud</title>
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Portafolio de Algoritmos</h1>
+        <p>Soluciones interactivas para Astronomía, Medio Ambiente y Salud</p>
+    </header>
+
+    <div class="container">
+
+        <div id="menu-principal" class="pantalla activa">
+            <h2>Selecciona un Área</h2>
+            <div class="grid-menu">
+                <div class="card-menu" onclick="navegar('seccion-astronomia')">
+                    <div class="icono">🌑</div>
+                    <h3>Astronomía</h3>
+                    <p>Magnitudes, planetas y luz.</p>
+                </div>
+                <div class="card-menu" onclick="navegar('seccion-ambiente')">
+                    <div class="icono">🌱</div>
+                    <h3>Medio Ambiente</h3>
+                    <p>AQI, ruido y residuos.</p>
+                </div>
+                <div class="card-menu" onclick="navegar('seccion-salud')">
+                    <div class="icono">🩺</div>
+                    <h3>Salud</h3>
+                    <p>Presión, temperatura y triage.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="seccion-astronomia" class="pantalla">
+            <button class="btn-back" onclick="navegar('menu-principal')">⬅ Volver al Menú</button>
+            <h2>Ejercicios de Astronomía</h2>
+
+            <div class="card-ejercicio">
+                <h3>1. Clasificación Estelar (IF)</h3>
+                <p>Ingresa la magnitud aparente:</p>
+                <input type="number" id="astro1-input" placeholder="Ej: 1.2">
+                <button onclick="astro1_Clasificar()">Clasificar</button>
+                <p id="astro1-result" class="resultado"></p>
+                <div id="astro1-visual" class="visual-box"></div> </div>
+
+            <div class="card-ejercicio">
+                <h3>2. Promedio Distancias (FOR)</h3>
+                <div class="input-group">
+                    <input type="number" id="astro2-input" placeholder="Millones de km">
+                    <button onclick="astro2_Agregar()">Agregar Distancia</button>
+                </div>
+                <p id="astro2-lista">Datos: Ninguno</p>
+                <button class="btn-action" onclick="astro2_Calcular()">Calcular Promedio</button>
+                <p id="astro2-result" class="resultado"></p>
+            </div>
+
+            <div class="card-ejercicio">
+                <h3>3. Cráteres Lunares (WHILE)</h3>
+                <p>Ingresa diámetros (0 para terminar):</p>
+                <div class="input-group">
+                    <input type="number" id="astro3-input" placeholder="Diámetro en km">
+                    <button onclick="astro3_Agregar()">Registrar</button>
+                </div>
+                <p id="astro3-lista">Registrados: 0</p>
+                <p id="astro3-result" class="resultado"></p>
+            </div>
+
+            <div class="card-ejercicio">
+                <h3>4. Identificar Cuerpo (SWITCH)</h3>
+                <p>Código (1-5):</p>
+                <select id="astro4-input">
+                    <option value="1">1. Estrella</option>
+                    <option value="2">2. Planeta</option>
+                    <option value="3">3. Cometa</option>
+                    <option value="4">4. Asteroide</option>
+                    <option value="5">5. Galaxia</option>
+                </select>
+                <button onclick="astro4_Identificar()">Identificar</button>
+                <div id="astro4-result" class="resultado-icon">❓</div> </div>
+
+            <div class="card-ejercicio">
+                <h3>5. Sensor de Luz (DO WHILE)</h3>
+                <p>Ingresa valor Lux o escribe "no" para finalizar:</p>
+                <div class="input-group">
+                    <input type="text" id="astro5-input" placeholder="Valor Lux">
+                    <button onclick="astro5_Procesar()">Ingresar</button>
+                </div>
+                <p id="astro5-log">Esperando datos...</p>
+                <div id="astro5-visual" class="visual-box"></div> </div>
+        </div>
+
+        <div id="seccion-ambiente" class="pantalla">
+            <button class="btn-back" onclick="navegar('menu-principal')">⬅ Volver al Menú</button>
+            <h2>Ejercicios de Medio Ambiente</h2>
+
+            <div class="card-ejercicio">
+                <h3>1. Calidad del Aire (AQI)</h3>
+                <input type="number" id="amb1-input" placeholder="Índice AQI (0-500)">
+                <button onclick="amb1_Calcular()">Verificar</button>
+                <p id="amb1-result" class="resultado"></p>
+                <div id="amb1-semaforo" class="visual-bar"></div> </div>
+
+            <div class="card-ejercicio">
+                <h3>2. Ruido Ambiental (FOR)</h3>
+                <p>Define cuántas mediciones harás:</p>
+                <input type="number" id="amb2-cantidad" placeholder="Cantidad de mediciones">
+                <button onclick="amb2_Iniciar()">Empezar Registro</button>
+                <div id="amb2-area-registro" style="display:none; margin-top:10px;">
+                    <input type="number" id="amb2-valor" placeholder="dB">
+                    <button onclick="amb2_Agregar()">Guardar Dato</button>
+                    <p id="amb2-progreso"></p>
+                </div>
+                <p id="amb2-result" class="resultado"></p>
+            </div>
+
+            <div class="card-ejercicio">
+                <h3>3. Focos de Calor (WHILE)</h3>
+                <p>Ingresa temperatura (0 para terminar):</p>
+                <div class="input-group">
+                    <input type="number" id="amb3-input" placeholder="Grados °C">
+                    <button onclick="amb3_Agregar()">Registrar</button>
+                </div>
+                <p id="amb3-lista">Temperaturas: []</p>
+                <p id="amb3-result" class="resultado"></p>
+            </div>
+
+            <div class="card-ejercicio">
+                <h3>4. Gestión de Residuos (SWITCH)</h3>
+                <p>Tipo de basura:</p>
+                <select id="amb4-input">
+                    <option value="1">1. Orgánico</option>
+                    <option value="2">2. Plástico</option>
+                    <option value="3">3. Papel/Cartón</option>
+                    <option value="4">4. Vidrio</option>
+                </select>
+                <button onclick="amb4_Clasificar()">¿Dónde va?</button>
+                <p id="amb4-result" class="resultado"></p>
+                <div id="amb4-basurero" class="visual-icon">🗑️</div>
+            </div>
+
+            <div class="card-ejercicio">
+                <h3>5. Nivel del Río (DO WHILE)</h3>
+                <p>Ingresa nivel (m) o "no" para terminar:</p>
+                <div class="input-group">
+                    <input type="text" id="amb5-input" placeholder="Metros">
+                    <button onclick="amb5_Procesar()">Registrar</button>
+                </div>
+                <p id="amb5-result" class="resultado"></p>
+                <div class="rio-container">
+                    <div id="amb5-visual" class="rio-agua"></div> </div>
+            </div>
+        </div>
+
+        <div id="seccion-salud" class="pantalla">
+            <button class="btn-back" onclick="navegar('menu-principal')">⬅ Volver al Menú</button>
+            <h2>Ejercicios de Salud</h2>
+
+            <div class="card-ejercicio">
+                <h3>1. Presión Arterial (IF)</h3>
+                <input type="number" id="salud1-sis" placeholder="Sistólica (ej. 120)">
+                <input type="number" id="salud1-dias" placeholder="Diastólica (ej. 80)">
+                <button onclick="salud1_Calcular()">Diagnosticar</button>
+                <p id="salud1-result" class="resultado"></p>
+            </div>
+
+            <div class="card-ejercicio">
+                <h3>2. Promedio Temperaturas (FOR)</h3>
+                <div class="input-group">
+                    <input type="number" id="salud2-input" placeholder="Temp °C">
+                    <button onclick="salud2_Agregar()">Añadir Paciente</button>
+                </div>
+                <p id="salud2-lista">Pacientes registrados: 0</p>
+                <button class="btn-action" onclick="salud2_Calcular()">Calcular Promedio</button>
+                <p id="salud2-result" class="resultado"></p>
+            </div>
+
+            <div class="card-ejercicio">
+                <h3>3. Contador Fiebre (WHILE)</h3>
+                <p>Temp paciente (0 para terminar):</p>
+                <div class="input-group">
+                    <input type="number" id="salud3-input" placeholder="Temp °C">
+                    <button onclick="salud3_Agregar()">Verificar</button>
+                </div>
+                <p id="salud3-result" class="resultado">Casos de fiebre detectados: 0</p>
+            </div>
+
+            <div class="card-ejercicio">
+                <h3>4. Clasificación TRIAGE (SWITCH)</h3>
+                <p>Código de emergencia:</p>
+                <select id="salud4-input">
+                    <option value="1">1. Resucitación</option>
+                    <option value="2">2. Emergencia</option>
+                    <option value="3">3. Urgencia</option>
+                    <option value="4">4. Menor</option>
+                </select>
+                <button onclick="salud4_Clasificar()">Ver Prioridad</button>
+                <p id="salud4-result" class="resultado"></p>
+            </div>
+
+            <div class="card-ejercicio">
+                <h3>5. Saturación SpO2 (DO WHILE)</h3>
+                <p>Ingresa % SpO2 o "no" para salir:</p>
+                <div class="input-group">
+                    <input type="text" id="salud5-input" placeholder="% Oxígeno">
+                    <button onclick="salud5_Procesar()">Registrar</button>
+                </div>
+                <p id="salud5-log" class="resultado"></p>
+                <div id="salud5-alerta" class="alerta-box">NORMAL</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="brillo\brillo.js"></script>
+</body>
+</html>

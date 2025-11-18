@@ -1,0 +1,107 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+header {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Pantallas y Navegación */
+.pantalla {
+    display: none; /* Oculto por defecto */
+    animation: fadeIn 0.5s;
+}
+.pantalla.activa {
+    display: block; /* Solo se muestra si tiene esta clase */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Menú Principal */
+.grid-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card-menu {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card-menu:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+    border-top: 5px solid #007bff;
+}
+.icono { font-size: 40px; margin-bottom: 10px; }
+
+/* Tarjetas de Ejercicios */
+.card-ejercicio {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #ccc;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card-ejercicio h3 { margin-top: 0; color: #444; }
+
+/* Inputs y Botones */
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 150px;
+}
+button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+button:hover { background-color: #0056b3; }
+
+.btn-back { background-color: #6c757d; margin-bottom: 20px; }
+.btn-action { background-color: #28a745; margin-top: 10px;}
+
+.resultado {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* PLUS VISUALES */
+/* Astro 1 Estrella */
+.visual-box { width: 50px; height: 50px; margin-top: 10px; border-radius: 50%; transition: 0.3s; }
+/* Astro 4 Icono */
+.resultado-icon { font-size: 50px; margin-top: 10px; }
+/* Env 1 Semáforo */
+.visual-bar { height: 10px; width: 100%; margin-top: 10px; border-radius: 5px; background: #eee; transition: 0.3s; }
+/* Env 5 Río */
+.rio-container { width: 100%; height: 50px; background: #ddd; border-radius: 0 0 10px 10px; overflow: hidden; position: relative; margin-top:10px;}
+.rio-agua { width: 100%; height: 0%; background: #007bff; bottom: 0; position: absolute; transition: height 0.5s; }
+/* Salud 5 Alerta */
+.alerta-box { padding: 10px; text-align: center; background: #eee; margin-top: 10px; border-radius: 4px; font-weight: bold; }
